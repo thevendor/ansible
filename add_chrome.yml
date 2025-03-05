@@ -7,6 +7,11 @@
       win_get_url:
         url: https://download.anydesk.com/AnyDesk.exe
         dest: C:\AnyDesk.exe
+    - name: Run PowerShell script that modifies the module changed result
+      ansible.windows.win_powershell:
+        script: |
+          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Inbound -Program "C:\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
+          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Outbound -Program "C:\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
     - name: Install Anydesk
       win_package:
         path: C:\AnyDesk.exe
