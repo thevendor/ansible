@@ -5,7 +5,7 @@
   tasks:
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
-        name: "google-chrome-stable"
+        name: "googlechrome"
         state: present
     - name: install anydesk
       chocolatey.chocolatey.win_chocolatey:
