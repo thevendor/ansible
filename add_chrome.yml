@@ -7,7 +7,3 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "google-chrome-stable"
         state: absent
-    - name: Run basic PowerShell script
-      ansible.windows.win_powershell:
-        script: |
-          (Get-ItemProperty -path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome').version | ForEach-Object {& ${env:ProgramFiles}\Google\Chrome\Application\chrome.exe --uninstall --multi-install --chrome --system-level --force-uninstall}
