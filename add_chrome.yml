@@ -7,3 +7,5 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "google-chrome-stable"
         state: absent
+    - name: Uninstall Chrome shell
+      win_shell: Get-AppxPackage "Google Chrome" | Remove-AppxPackage
