@@ -5,5 +5,5 @@
   tasks:
     - name: install packages
       chocolatey.chocolatey.win_chocolatey:
-        name: "googlechrome"
+        name: "google chrome"
         state: absent
