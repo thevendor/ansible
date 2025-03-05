@@ -1,11 +1,21 @@
-- name: install Google Chrome
+- name: install basic windows software
   hosts: all
   become: false
-  gather_facts: true
+  gather_facts: false
   tasks:
-    - name: Uninstall Chrome shell
-      win_package:
-        path: C:\Program Files\Google\Chrome\Application\chrome.exe
-        product_id: chrome
-        arguments: /S
-        state: absent
+    - name: install google chrome
+      chocolatey.chocolatey.win_chocolatey:
+        name: "googlechrome"
+        state: present
+    - name: install anydesk
+      chocolatey.chocolatey.win_chocolatey:
+        name: "anydesk"
+        state: present
+    - name: install ultraviewer
+      chocolatey.chocolatey.win_chocolatey:
+        name: "ultraviewer"
+        state: present
+    - name: install vlc
+      chocolatey.chocolatey.win_chocolatey:
+        name: "vlc"
+        state: present
