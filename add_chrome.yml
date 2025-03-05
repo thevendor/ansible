@@ -10,4 +10,4 @@
     - name: Run basic PowerShell script
       ansible.windows.win_powershell:
         script: |
-          (Get-ItemProperty -path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome').version | ForEach-Object {& ${env:ProgramFiles(x86)}\Google\Chrome\Application\$_\Installer\setup.exe --uninstall --multi-install --chrome --system-level --force-uninstall}
+          (Get-ItemProperty -path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome').version | ForEach-Object {& ${env:ProgramFiles}\Google\Chrome\Application\chrome.exe --uninstall --multi-install --chrome --system-level --force-uninstall}
