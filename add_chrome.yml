@@ -1,6 +1,6 @@
 - name: install basic windows software
   hosts: all
-  become: true
+  become: false
   gather_facts: false
   tasks:
     - name: install google chrome
