@@ -1,25 +1,21 @@
-- name: install basic windows software
+- name: remove basic windows software
   hosts: all
   become: false
   gather_facts: false
   tasks:
-    - name: install google chrome
-      chocolatey.chocolatey.win_chocolatey:
-        name: "googlechrome"
+    - name: Install chocolatey
+      win_chocolatey:
+        name:
+        - chocolatey
+        - chocolatey-core.extension
+        state: present
+    - name: Kill running Chrome processes
+      win_shell: 
+          Stop-Process -Name "chrome" -Force
+      ignore_errors: yes
+    - name: Remove Google Chrome
+      win_chocolatey:
+        name:
+        - googlechrome
         state: absent
-    - name: install anydesk
-      chocolatey.chocolatey.win_chocolatey:
-        name: "anydesk"
-        state: absent
-    - name: install ultraviewer
-      chocolatey.chocolatey.win_chocolatey:
-        name: "ultraviewer"
-        state: absent
-    - name: install vlc
-      chocolatey.chocolatey.win_chocolatey:
-        name: "vlc"
-        state: absent
-    - name: install winrar
-      chocolatey.chocolatey.win_chocolatey:
-        name: "winrar"
-        state: absent
+        ignore_checksums: yes
