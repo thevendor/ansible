@@ -3,7 +3,7 @@
   become: false
   gather_facts: false
   tasks:
-    - name: install google chrome
+    - name: install packages
       chocolatey.chocolatey.win_chocolatey:
         name: "googlechrome"
         state: present
