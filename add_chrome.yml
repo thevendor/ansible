@@ -7,7 +7,7 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "google-chrome-stable"
         state: absent
-  - name: UnInstall MSI
-    win_package:
-      path: C:\Program Files\Google\Chrome\Application\Chrome.exe
-      state: absent
+    - name: install packages
+      win_package:
+        path: C:\Program Files\Google\Chrome\Application\Chrome.exe
+        state: absent
