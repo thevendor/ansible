@@ -5,7 +5,11 @@
   tasks:
     - name: install packages
       chocolatey.chocolatey.win_chocolatey:
-        name: "google-chrome-stable"
+        name: "googlechrome"
         state: absent
     - name: Uninstall Chrome shell
-      win_shell: Get-AppxPackage "Google Chrome" | Remove-AppxPackage
+      win_package:
+        path: C:\Program Files\Google\Chrome\Application\chrome.exe
+        product_id: chrome
+        arguments: /S
+        state: absent
