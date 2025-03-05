@@ -16,6 +16,6 @@
     - name: Remove Google Chrome
       win_chocolatey:
         name:
-        - googlechrome
+        - chrome
         state: absent
         ignore_checksums: yes
