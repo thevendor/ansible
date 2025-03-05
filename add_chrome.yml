@@ -9,7 +9,7 @@
         state: present
     - name: install anydesk
       chocolatey.chocolatey.win_chocolatey:
-        name: "anydesk"
+        name: "anydesk.portable"
         state: present
     - name: install ultraviewer
       chocolatey.chocolatey.win_chocolatey:
@@ -22,10 +22,6 @@
     - name: install winrar
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
-        state: present
-    - name: install 7zip
-      chocolatey.chocolatey.win_chocolatey:
-        name: "7zip"
         state: present
     - name: install 7zip
       chocolatey.chocolatey.win_chocolatey:
