@@ -3,9 +3,13 @@
   become: false
   gather_facts: false
   tasks:
+    - name: Download the Anydesk installer
+      win_get_url:
+        url: https://download.anydesk.com/AnyDesk.exe
+        dest: C:\anydesk\AnyDesk.exe
     - name: Install Anydesk
       win_package:
-        path: https://download.anydesk.com/AnyDesk.exe
+        path: C:\anydesk\AnyDesk.exe
         arguments:
           - /install
           - /passive
