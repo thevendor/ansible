@@ -6,10 +6,10 @@
     - name: Download the Anydesk installer
       win_get_url:
         url: https://download.anydesk.com/AnyDesk.exe
-        dest: C:\Downloads\AnyDesk.exe
+        dest: C:\AnyDesk.exe
     - name: Install Anydesk
       win_package:
-        path: C:\Downloads\AnyDesk.exe
+        path: C:\AnyDesk.exe
         arguments:
           - /install
           - /passive
