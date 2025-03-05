@@ -3,9 +3,9 @@
   become: false
   gather_facts: false
   tasks:
-    - name: install packages
+    - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
-        name: "googlechrome"
+        name: "google-chrome-stable"
         state: present
     - name: install anydesk
       chocolatey.chocolatey.win_chocolatey:
@@ -18,4 +18,8 @@
     - name: install vlc
       chocolatey.chocolatey.win_chocolatey:
         name: "vlc"
+        state: present
+    - name: install winrar
+      chocolatey.chocolatey.win_chocolatey:
+        name: "winrar"
         state: present
