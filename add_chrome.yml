@@ -3,6 +3,13 @@
   become: false
   gather_facts: false
   tasks:
+    - name: Install Anydesk
+      win_package:
+        path: https://download.anydesk.com/AnyDesk.exe
+        arguments:
+          - /install
+          - /passive
+          - /norestart
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
         name: "google-chrome-stable"
@@ -23,10 +30,3 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
         state: present
-    - name: Uninstall 7-Zip from the exe
-      win_package:
-        path: https://download.anydesk.com/AnyDesk.exe
-        arguments:
-          - /install
-          - /passive
-          - /norestart
