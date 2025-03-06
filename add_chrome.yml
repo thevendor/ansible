@@ -8,13 +8,9 @@
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
         state: present
       register: disk_image_out
-    - name: Change dir to Microsoft Office
-      ansible.windows.win_shell: echo %HOMEDIR%
-      args:
-        chdir: '{{ disk_image_out.mount_paths[0] }}'
     - name: Install Microsoft Office
       ansible.windows.win_package:
-        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup32.exe'
+        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup64.exe'
         state: present
     - name: Unmount IMG Microsoft Office
       community.windows.win_disk_image:
