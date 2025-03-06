@@ -8,10 +8,10 @@
         name: "python"
         state: present
     - name: Delete Microsoft Office Image
-      ansible.builtin.file:
+      file:
         state: absent
         path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
     - name: Delete PreInstall VPN Folders
-      ansible.builtin.file:
+      file:
         state: absent
         path: C:\netclient
