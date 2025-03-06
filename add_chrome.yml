@@ -8,7 +8,14 @@
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
         state: present
       register: disk_image_out
-    - name: Unmount IMG {{ disk_image_out.mount_paths[0] }}Setup.exe
+    - name: Install Microsoft Office
+      win_package:
+        path: "{{ disk_image_out.mount_paths[0] }}Setup.exe"
+        arguments:
+          - /install
+          - /passive
+          - /norestart
+    - name: Unmount IMG Microsoft Office
       community.windows.win_disk_image:
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
         state: absent
