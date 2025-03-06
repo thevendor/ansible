@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: install Ultraviewer
-      chocolatey.chocolatey.win_chocolatey:
-        name: "ultraviewer.install"
+      ansible.windows.win_package:
+        path: https://www.ultraviewer.net/en/UltraViewer_setup_6.6_en.exe
         state: present
-        log_path: C:\logs-ultraviewer.log
+        log_path: C:\logs-ultrav.log
