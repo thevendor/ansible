@@ -3,32 +3,6 @@
   become: false
   gather_facts: false
   tasks:
-    - name: Download the Microsoft Office installer
-      win_get_url:
-        url: https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2021Retail.img
-        dest: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
-    - name: Ensure Microsoft Office IMG is mounted
-      community.windows.win_disk_image:
-        image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
-        state: present
-      register: disk_image_out
-    - name: Install Microsoft Office
-      ansible.windows.win_package:
-        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup32.exe'
-        state: present
-    - name: Unmount IMG Microsoft Office
-      community.windows.win_disk_image:
-        image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
-        state: absent
-    - name: Download the Anydesk installer
-      win_get_url:
-        url: https://download.anydesk.com/AnyDesk.exe
-        dest: C:\Users\All Users\Desktop\AnyDesk.exe
-    - name: Add Firewall Rules for AnyDesk communication
-      ansible.windows.win_powershell:
-        script: |
-          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Inbound -Program "C:\Users\All Users\Desktop\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
-          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Outbound -Program "C:\Users\All Users\Desktop\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
         name: "googlechrome"
@@ -45,11 +19,3 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
         state: present
-    - name: Delete Microsoft Office Image
-      win_file:
-        path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
-        state: absent
-    - name: Delete PreInstall VPN Folders
-      win_file:
-        path: C:\netclient
-        state: absent
