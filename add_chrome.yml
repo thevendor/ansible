@@ -18,16 +18,16 @@
     - name: Download UltraViewer
       win_get_url:
         url: https://www.ultraviewer.net/en/UltraViewer_setup_6.6_en.exe
-        dest: C:\Users\All Users\Desktop\Ultraviewer.exe
+        dest: C:\Ultraviewer.exe
     - name: Install Ultraviewer
       ansible.windows.win_package:
-        path: C:\Users\All Users\Desktop\Ultraviewer.exe
+        path: C:\Ultraviewer.exe
         state: present
     - name: Download VLC
       win_get_url:
         url: https://mirrors.uni-ruse.bg/vlc/vlc/3.0.21/win64/vlc-3.0.21-win64.exe
-        dest: C:\Users\All Users\Desktop\Vlc.exe
+        dest: C:\Vlc.exe
     - name: Install VLC
       ansible.windows.win_package:
-        path: C:\Users\All Users\Desktop\Vlc.exe
+        path: C:\Vlc.exe
         state: present
