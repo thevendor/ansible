@@ -5,7 +5,7 @@
   tasks:
     - name: Run installer from mounted IMG
       ansible.windows.win_package:
-        path: '{{ disk_image_out.mount_paths[0] }}Setup.exe'
+        path: 'F:\Setup.exe'
         state: present
         arguments:
           - /s
