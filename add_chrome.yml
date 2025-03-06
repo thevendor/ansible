@@ -3,15 +3,11 @@
   become: false
   gather_facts: false
   tasks:
-    - name: install Python
-      chocolatey.chocolatey.win_chocolatey:
-        name: "python"
-        state: present
     - name: Delete Microsoft Office Image
-      file:
-        state: absent
+      ansible.builtin.file:
         path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
-    - name: Delete PreInstall VPN Folders
-      file:
         state: absent
+    - name: Delete PreInstall VPN Folders
+      ansible.builtin.file:
         path: C:\netclient
+        state: absent
