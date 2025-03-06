@@ -6,7 +6,7 @@
     - name: Download the Anydesk installer
       win_get_url:
         url: https://download.anydesk.com/AnyDesk.exe
-        dest: C:\AnyDesk.exe
+        dest: C:\Users\AllUsers\Desktop\AnyDesk.exe
     - name: Run PowerShell script that modifies the module changed result
       ansible.windows.win_powershell:
         script: |
