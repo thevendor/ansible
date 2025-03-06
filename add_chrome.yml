@@ -9,11 +9,11 @@
         state: present
     - name: install ultraviewer
       chocolatey.chocolatey.win_chocolatey:
-        name: "ultraviewer"
+        name: "ultraviewer.install"
         state: present
     - name: install vlc
       chocolatey.chocolatey.win_chocolatey:
-        name: "vlc"
+        name: "vlc.install"
         state: present
     - name: install WinRar
       chocolatey.chocolatey.win_chocolatey:
