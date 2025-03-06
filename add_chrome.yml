@@ -7,14 +7,6 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "googlechrome"
         state: present
-    - name: install ultraviewer
-      chocolatey.chocolatey.win_chocolatey:
-        name: "ultraviewer.install"
-        state: present
-    - name: install vlc
-      chocolatey.chocolatey.win_chocolatey:
-        name: "vlc.install"
-        state: present
     - name: install WinRar
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
@@ -22,4 +14,20 @@
     - name: install 7Zip
       chocolatey.chocolatey.win_chocolatey:
         name: "7zip"
+        state: present
+    - name: Download UltraViewer
+      win_get_url:
+        url: https://www.ultraviewer.net/en/UltraViewer_setup_6.6_en.exe
+        dest: C:\Users\All Users\Desktop\Ultraviewer.exe
+    - name: Install Ultraviewer
+      ansible.windows.win_package:
+        path: C:\Users\All Users\Desktop\Ultraviewer.exe
+        state: present
+    - name: Download VLC
+      win_get_url:
+        url: https://mirrors.uni-ruse.bg/vlc/vlc/3.0.21/win64/vlc-3.0.21-win64.exe
+        dest: C:\Users\All Users\Desktop\Vlc.exe
+    - name: Install VLC
+      ansible.windows.win_package:
+        path: C:\Users\All Users\Desktop\Vlc.exe
         state: present
