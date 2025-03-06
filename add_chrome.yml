@@ -22,7 +22,7 @@
     - name: Install Ultraviewer
       ansible.windows.win_package:
         path: C:\Ultraviewer.exe
-        state: present
+        arguments: /install /passive /norestart
     - name: Download VLC
       win_get_url:
         url: https://mirrors.uni-ruse.bg/vlc/vlc/3.0.21/win64/vlc-3.0.21-win64.exe
@@ -30,4 +30,4 @@
     - name: Install VLC
       ansible.windows.win_package:
         path: C:\Vlc.exe
-        state: present
+        arguments: /install /passive /norestart
