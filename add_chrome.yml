@@ -11,11 +11,9 @@
     - name: Run installer from mounted IMG
       ansible.windows.win_powershell:
         script: |
-          F:\Setup.exe
+          {{ disk_image_out.mount_paths[0] }}Setup.exe
         arguments:
           - /install
-          - /q
-          - /qn
         register: text_output
     - name: Unmount IMG {{ text_output.output[0] }}
       community.windows.win_disk_image:
