@@ -5,5 +5,6 @@
   tasks:
     - name: install Ultraviewer
       chocolatey.chocolatey.win_chocolatey:
-        name: "ultraviewer.install --version=6.6.61"
+        name: "ultraviewer.install"
         state: present
+        log_path: C:\logs-ultraviewer.log
