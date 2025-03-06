@@ -31,7 +31,7 @@
           New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Outbound -Program "C:\Users\All Users\Desktop\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
-        name: "google-chrome-stable"
+        name: "googlechrome"
         state: present
     - name: install ultraviewer
       chocolatey.chocolatey.win_chocolatey:
