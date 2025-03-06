@@ -16,6 +16,10 @@
       ansible.windows.win_package:
         path: '{{ disk_image_out.mount_paths[0] }}Setup.exe'
         state: present
+        arguments:
+          - /s
+          - /v
+          - /qn
     - name: Unmount IMG
       community.windows.win_disk_image:
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
