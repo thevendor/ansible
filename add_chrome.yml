@@ -17,6 +17,9 @@
         path: '{{ disk_image_out.mount_paths[0] }}Setup.exe'
         product_id: ProPlus2021Retail
         state: present
+        arguments:
+          - /adminfile
+          - C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.MSP
     - name: Unmount IMG
       community.windows.win_disk_image:
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
