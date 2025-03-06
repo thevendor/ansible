@@ -3,6 +3,10 @@
   become: false
   gather_facts: false
   tasks:
+    - name: Download the Microsoft Office installer
+      win_get_url:
+        url: https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2021Retail.img
+        dest: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
     - name: Ensure Microsoft Office IMG is mounted
       community.windows.win_disk_image:
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
