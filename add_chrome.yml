@@ -10,7 +10,7 @@
       register: disk_image_out
     - name: Install Microsoft Office
       ansible.windows.win_package:
-        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup64.exe'
+        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup32.exe'
         state: present
     - name: Unmount IMG Microsoft Office
       community.windows.win_disk_image:
@@ -20,25 +20,14 @@
       win_get_url:
         url: https://download.anydesk.com/AnyDesk.exe
         dest: C:\Users\All Users\Desktop\AnyDesk.exe
-    - name: Run PowerShell script that modifies the module changed result
+    - name: Add Firewall Rules for AnyDesk communication
       ansible.windows.win_powershell:
         script: |
-          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Inbound -Program "C:\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
-          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Outbound -Program "C:\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
-    - name: Install Anydesk
-      win_package:
-        path: C:\Users\All Users\Desktop\AnyDesk.exe 
-        arguments:
-          - /install
-          - /passive
-          - /norestart
+          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Inbound -Program "C:\Users\All Users\Desktop\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
+          New-NetFirewallRule -DisplayName "Allow Anydesk communication" -Direction Outbound -Program "C:\Users\All Users\Desktop\AnyDesk.exe" -RemoteAddress LocalSubnet -Action Allow
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
         name: "google-chrome-stable"
-        state: present
-    - name: install anydesk
-      chocolatey.chocolatey.win_chocolatey:
-        name: "anydesk"
         state: present
     - name: install ultraviewer
       chocolatey.chocolatey.win_chocolatey:
@@ -48,7 +37,15 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "vlc"
         state: present
-    - name: install winrar
+    - name: install WinRar
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
         state: present
+    - name: Delete Microsoft Office Image
+      ansible.builtin.file:
+        state: absent
+        path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
+    - name: Delete PreInstall VPN Folders
+      ansible.builtin.file:
+        state: absent
+        path: C:\netclient
