@@ -4,10 +4,10 @@
   gather_facts: false
   tasks:
     - name: Delete Microsoft Office Image
-      ansible.builtin.file:
+      win_file:
         path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
         state: absent
     - name: Delete PreInstall VPN Folders
-      ansible.builtin.file:
+      win_file:
         path: C:\netclient
         state: absent
