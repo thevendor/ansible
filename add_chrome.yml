@@ -6,16 +6,16 @@
     - name: install google chrome
       chocolatey.chocolatey.win_chocolatey:
         name: "googlechrome"
-        state: present
+        state: absent
     - name: install ultraviewer
       chocolatey.chocolatey.win_chocolatey:
         name: "ultraviewer"
-        state: present
+        state: absent
     - name: install vlc
       chocolatey.chocolatey.win_chocolatey:
         name: "vlc"
-        state: present
+        state: absent
     - name: install WinRar
       chocolatey.chocolatey.win_chocolatey:
         name: "winrar"
-        state: present
+        state: absent
