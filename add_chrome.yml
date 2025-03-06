@@ -3,11 +3,16 @@
   become: false
   gather_facts: false
   tasks:
+    - name: Ensure Microsoft Office IMG is mounted
+      community.windows.win_disk_image:
+        image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
+        state: present
+      register: disk_image_out
     - name: Run installer from mounted IMG
       ansible.windows.win_powershell:
         script: |
-          cd F:\
-          Setup.exe /install /q /qn
+          cd {{ disk_image_out.mount_paths[0] }}
+          ./Setup.exe /install /q /qn
     - name: Unmount IMG
       community.windows.win_disk_image:
         image_path: C:\Users\All Users\Desktop\MicrosoftOfficeProPlus2021Retail.img
