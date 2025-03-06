@@ -10,7 +10,7 @@
       register: disk_image_out
     - name: Install Microsoft Office
       win_package:
-        path: "{{ disk_image_out.mount_paths[0] }}Office\Setup64.exe"
+        path: '{{ disk_image_out.mount_paths[0] }}Office\Setup64.exe'
         arguments:
           - /install
           - /passive
