@@ -7,39 +7,31 @@
       ansible.windows.win_powershell:
         script: |
           choco uninstall ultraviewer.install -y
-        pinned: true
     - name: Install Teamviewer
       ansible.windows.win_powershell:
         script: |
           choco uninstall teamviewer -y
-        pinned: true
     - name: Install Anydesk
       ansible.windows.win_powershell:
         script: |
           choco uninstall anydesk -y
-        pinned: true
     - name: Install Google Chrome
       ansible.windows.win_powershell:
         script: |
           choco uninstall googlechrome -y
-        pinned: true
     - name: Install Firefox
       ansible.windows.win_powershell:
         script: |
           choco uninstall firefox -y
-        pinned: true
     - name: Install WinRar
       ansible.windows.win_powershell:
         script: |
           choco uninstall winrar -y
-        pinned: true
     - name: Install 7zip
       ansible.windows.win_powershell:
         script: |
           choco uninstall 7zip -y
-        pinned: true
     - name: Install Vlc
       ansible.windows.win_powershell:
         script: |
           choco uninstall vlc -y
-        pinned: true
