@@ -6,32 +6,32 @@
     - name: Install Ultraviewer
       ansible.windows.win_powershell:
         script: |
-          choco uninstall ultraviewer.install -y
+          choco uninstall ultraviewer.install -y -f
     - name: Install Teamviewer
       ansible.windows.win_powershell:
         script: |
-          choco uninstall teamviewer -y
+          choco uninstall teamviewer -y -f
     - name: Install Anydesk
       ansible.windows.win_powershell:
         script: |
-          choco uninstall anydesk -y
+          choco uninstall anydesk -y -f
     - name: Install Google Chrome
       ansible.windows.win_powershell:
         script: |
-          choco uninstall googlechrome -y
+          choco uninstall googlechrome -y -f
     - name: Install Firefox
       ansible.windows.win_powershell:
         script: |
-          choco uninstall firefox -y
+          choco uninstall firefox -y -f
     - name: Install WinRar
       ansible.windows.win_powershell:
         script: |
-          choco uninstall winrar -y
+          choco uninstall winrar -y -f
     - name: Install 7zip
       ansible.windows.win_powershell:
         script: |
-          choco uninstall 7zip -y
+          choco uninstall 7zip -y -f
     - name: Install Vlc
       ansible.windows.win_powershell:
         script: |
-          choco uninstall vlc -y
+          choco uninstall vlc.install -y -f
