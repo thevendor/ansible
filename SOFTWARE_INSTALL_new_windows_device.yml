@@ -3,7 +3,10 @@
   become: false
   gather_facts: false
   tasks:
-    - name: Install WireGuard
-      ansible.windows.win_powershell:
-        script: |
-          choco install adobereader -y
+    - name: Install Adobe Acrobat Reader
+      ansible.windows.win_package:
+        path: https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2400520414/AcroRdrDCx642400520414_en_US.exe
+        arguments:
+          - /install
+          - /passive
+          - /norestart
