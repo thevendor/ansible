@@ -6,11 +6,11 @@
     - name: Install Ultraviewer, Google Chrome, Winrar, 7zip, Firefox, Vlc, TeamViewer, Anydesk
       ansible.windows.win_powershell:
         script: |
-          choco install ultraviewer.install -y
-          choco install googlechrome -y
-          choco install firefox -y
-          choco install winrar -y
-          choco install 7zip -y
-          choco install vlc -y
-          choco install teamviewer -y
-          choco install anydesk -y
+          choco uninstall ultraviewer.install -y
+          choco uninstall googlechrome -y
+          choco uninstall firefox -y
+          choco uninstall winrar -y
+          choco uninstall 7zip -y
+          choco uninstall vlc -y
+          choco uninstall teamviewer -y
+          choco uninstall anydesk -y
