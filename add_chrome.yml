@@ -3,9 +3,11 @@
   become: false
   gather_facts: false
   tasks:
-    - name: install Ultraviewer
-      win_package:
-        path: https://www.ultraviewer.net/en/UltraViewer_setup_6.6_en.exe
-        state: present
-        log_path: C:\logs-ultrav.log
-        arguments: "INSTALLDIR=c:\custompath"
+    - name: Install Ultraviewer, Google Chrome, Winrar, 7zip, Firefox
+      ansible.windows.win_powershell:
+        script: |
+          choco install ultraviewer.install -y
+          choco install googlechrome -y
+          choco install firefox -y
+          choco install winrar -y
+          choco install 7zip -y
