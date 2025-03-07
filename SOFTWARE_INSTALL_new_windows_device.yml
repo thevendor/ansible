@@ -3,10 +3,19 @@
   become: false
   gather_facts: false
   tasks:
-    - name: Install Adobe Acrobat Reader
-      ansible.windows.win_package:
-        path: https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2400520414/AcroRdrDCx642400520414_en_US.exe
-        arguments:
-          - /install
-          - /passive
-          - /norestart
+    - name: Pin MyPc to Desktop
+      ansible.windows.win_powershell:
+        script: |
+          function Create-Shortcut {
+              param (
+                  [string]$TargetPath,
+                  [string]$ShortcutPath
+              )
+          $WshShell = New-Object -ComObject WScript.Shell
+              $Shortcut = $WshShell.CreateShortcut($ShortcutPath)
+              $Shortcut.TargetPath = $TargetPath
+              $Shortcut.Save()
+          }
+          $ThisPCPath = "C:\Users\All Users\Desktop\ThisPC.lnk"
+          Create-Shortcut -TargetPath "::{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -ShortcutPath $ThisPCPath
+          $shell.Namespace($taskbarPath).Self.InvokeVerb('pindirectory', $ThisPCPath)
