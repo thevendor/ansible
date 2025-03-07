@@ -3,7 +3,14 @@
   become: false
   gather_facts: false
   tasks:
-    - name: Install Microsoft .NET Framework 4.8
-      win_chocolatey:
-        name: 'netfx-4.8'
-        state: present
+    - name: Install Ultraviewer, Google Chrome, Winrar, 7zip, Firefox, Vlc, TeamViewer, Anydesk
+      ansible.windows.win_powershell:
+        script: |
+          choco install ultraviewer.install -y
+          choco install googlechrome -y
+          choco install firefox -y
+          choco install winrar -y
+          choco install 7zip -y
+          choco install vlc -y
+          choco install teamviewer -y
+          choco install anydesk -y
