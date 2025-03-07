@@ -35,3 +35,7 @@
       ansible.windows.win_powershell:
         script: |
           choco install vlc.install -y
+    - name: Install Adobe Reader
+      ansible.windows.win_powershell:
+        script: |
+          choco install adobereader.install -y
