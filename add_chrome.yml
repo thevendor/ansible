@@ -11,6 +11,6 @@
           choco uninstall firefox -y
           choco uninstall winrar -y
           choco uninstall 7zip -y
-          choco uninstall vlc -y
+          choco uninstall vlc.install -y
           choco uninstall teamviewer -y
           choco uninstall anydesk -y
