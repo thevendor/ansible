@@ -6,4 +6,4 @@
     - name: Install WireGuard
       ansible.windows.win_powershell:
         script: |
-          choco install wireguard.install -y
+          choco install adobereader.install -y
