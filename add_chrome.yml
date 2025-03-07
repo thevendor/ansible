@@ -6,4 +6,4 @@
     - name: Install Microsoft .NET Framework 4.8
       win_chocolatey:
         name: 'netfx-4.8'
-        state: present
+        state: absent
